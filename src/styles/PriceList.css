@@ -1,0 +1,68 @@
+.gray-container{
+    width: 100%;
+    padding: 2em 0px;
+    background-color: #f0f0f0;
+}
+
+.price-list-container{
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    width: 85%;
+    margin: 0 auto;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.items-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    margin: 0 auto;
+    height: 2em;
+}
+
+.items-container.heading{
+    text-transform: capitalize;
+    font-size: 1.2em;
+    color: gray;
+}
+
+.items-container.item{
+    border: 1px solid red;
+    height: 4em;
+}
+
+.platform-column{
+    width: 40%;
+    display: flex;
+    align-items: center;
+}
+
+.platform-icon{
+    font-size: 3em;
+    display: flex;
+    align-items: center;
+}
+
+.platform-name{
+    margin-left: 1em;
+    font-size: 1.3em;
+}
+
+.service-column{
+    width: 15%;
+}
+
+.amount-column{
+    width: 15%;
+}
+
+.cost-column{
+    width: 15%;
+}
+
+.buy-btn-column{
+    width: 15%;
+}
