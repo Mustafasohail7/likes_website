@@ -1,8 +1,38 @@
 import '../styles/PriceList.css'
 
+import { useState } from 'react'
+
 import Services from '../data/Services'
 
+import Row from './Row'
+
 const PriceList = () => {
+
+    const [dropDownStates, setDropDownStates] = useState([
+        { platform: 'instagram', service: 'followers', amount: 300 },
+        { platform: 'facebook', service: 'followers', amount: 300 },
+        { platform: 'youtube', service: 'followers', amount: 300 },
+        { platform: 'discord', service: 'followers', amount: 300 },
+        { platform: 'telegram', service: 'followers', amount: 300 },
+        { platform: 'twitch', service: 'followers', amount: 300 },
+        { platform: 'snapchat', service: 'followers', amount: 300 },
+        { platform: 'tiktok', service: 'followers', amount: 300 },
+        { platform: 'spotify', service: 'followers', amount: 300 },
+    ])
+
+    const handleServiceChange = (v, id) => {
+        const newDropDownStates = [...dropDownStates]
+        newDropDownStates[id].service = v.target.value
+        setDropDownStates(newDropDownStates)
+        console.log(dropDownStates[id])
+    }
+
+    const handleAmountChange = (v, id) => {
+        const newDropDownStates = [...dropDownStates]
+        newDropDownStates[id].amount = v.target.value
+        setDropDownStates(newDropDownStates)
+        console.log(dropDownStates[id])
+    }
 
   return (
     <div className='gray-container'>
@@ -23,37 +53,14 @@ const PriceList = () => {
                 <div className='buy-btn-column'/>
             </div>
             {Services.map((service) => (
-                <div className='items-container item'>
-                    <div className='platform-column'>
-                        <div className='platform-icon'>
-                            {service.icon}
-                        </div>
-                        <div className='platform-name'>
-                            {service.name}
-                        </div>
-                    </div>
-                    <div className='service-column'>
-                        <select>
-                        {service.services.map((service) => (
-                            <option value={service.name} className='service-name'>
-                                {service.name}
-                            </option>
-                        ))}
-                        </select>
-                    </div>
-                    <div className='amount-column'>
-                        <select>
-                        </select>
-                    </div>
-                    <div className='cost-column'>
-                        200 usd
-                    </div>
-                    <div className='buy-btn-column'>
-                        <button className='buy-btn'>
-                            buy
-                        </button>
-                    </div>
-                </div>
+                <Row key={service.id} platform={dropDownStates[service.id].platform}
+                    serviceType={dropDownStates[service.id].service}
+                    amount={dropDownStates[service.id].amount}
+                    icon={service.icon}
+                    service={service}
+                    handleServiceChange={(value) => handleServiceChange(value, service.id)}
+                    handleAmountChange={(value) => handleAmountChange(value, service.id)}
+                />
             ))}
         </div>
     </div>

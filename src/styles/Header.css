@@ -1,5 +1,5 @@
 .header {
-    background-color: #2596be; /* Deep Blue Background */
+    background-color: var(--primary-color); /* Deep Blue Background */
     color: #000; /* Black Font Color */
     padding: 0px 20px;
     height: 15vh;
@@ -84,6 +84,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    text-transform: capitalize;
 }
 
 .dropdown-item-icon{

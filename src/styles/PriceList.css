@@ -2,6 +2,8 @@
     width: 100%;
     padding: 2em 0px;
     background-color: #f0f0f0;
+
+    text-transform: capitalize;
 }
 
 .price-list-container{
@@ -11,7 +13,7 @@
     width: 85%;
     margin: 0 auto;
     flex-direction: column;
-    gap: 10px;
+    gap: 1.5em;
 }
 
 .items-container{
@@ -30,7 +32,6 @@
 }
 
 .items-container.item{
-    border: 1px solid red;
     height: 4em;
 }
 
@@ -65,4 +66,37 @@
 
 .buy-btn-column{
     width: 15%;
+}
+
+.service-dropdown, .amount-dropdown{
+    border: none;
+    background-color: var(--primary-color);
+    padding: 15px;
+    border-radius: 5px;
+
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+.service-option, .amount-option{
+    background-color: white;
+    cursor: pointer;
+    height: 30px;
+}
+
+.cost-column.cost{
+    font-size: 1.3em;
+    font-weight: 400;
+}
+
+.buy-btn{
+    padding: 10px 50px;
+    text-transform: capitalize;
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    color: var(--primary-color);
+    font-weight: 800;
+    font-size: 1.1em;
+
+    cursor: pointer;
 }
