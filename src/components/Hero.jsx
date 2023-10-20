@@ -1,7 +1,5 @@
 import '../styles/Hero.css'
 
-import youtube from '../assets/youtube.png'
-
 const Hero = () => {
   return (
     <div className="hero">
@@ -11,9 +9,9 @@ const Hero = () => {
       <p className="sub-tagline">
         We have the best and unmatched quality. <br/> Our service is unparalleled.
       </p>
-      <div className='absolute-youtube'>
+      {/* <div className='absolute-youtube'>
         <img src={youtube} alt='youtube logo' className='youtube-logo'/>
-      </div>
+      </div> */}
     </div>
   )
 }

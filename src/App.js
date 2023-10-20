@@ -6,6 +6,7 @@ import PriceList from './components/PriceList';
 import Features from './components/Features';
 import FAQ from './components/FAQ';
 import FlashCard from './components/FlashCard';
+import ReviewSlider from './components/ReviewSlider';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Hero />
       <PriceList />
       <Features />
+      <ReviewSlider />
       <FAQ />
       <FlashCard />
     </div>

@@ -3,6 +3,7 @@
     color: #000; /* Black Font Color */
     padding: 0px 20px;
     height: 15vh;
+    font-family: var(--primary-font);
 
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);;
 }
@@ -34,6 +35,8 @@
     display: flex;
     width: 40%;
     justify-content: space-between;
+
+    font-weight: 600;
 
     font-size: 1.2em;
 }
