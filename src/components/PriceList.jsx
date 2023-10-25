@@ -24,14 +24,14 @@ const PriceList = () => {
         const newDropDownStates = [...dropDownStates]
         newDropDownStates[id].service = v.target.value
         setDropDownStates(newDropDownStates)
-        console.log(dropDownStates[id])
+        // console.log(dropDownStates[id])
     }
 
     const handleAmountChange = (v, id) => {
         const newDropDownStates = [...dropDownStates]
         newDropDownStates[id].amount = v.target.value
         setDropDownStates(newDropDownStates)
-        console.log(dropDownStates[id])
+        // console.log(dropDownStates[id])
     }
 
   return (

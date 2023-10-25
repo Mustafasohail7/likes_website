@@ -88,10 +88,22 @@
     align-items: center;
     gap: 10px;
     text-transform: capitalize;
+    width: 70%;
+    margin: 0 auto;
 }
 
 .dropdown-item-icon{
     font-size: 2.5em;
     display: flex;
     align-items: center;
+}
+
+.instagram-div{
+    color: white;
+    border-radius: 5px;
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);;
+}
+
+.tiktok-div{
+    color: black;
 }

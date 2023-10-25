@@ -34,7 +34,7 @@ const Header = () => {
                         const {id, name, icon} = service
                         return (
                             <div className='dropdown-item' key={id}>
-                                <div className='dropdown-item-icon'>{icon}</div>
+                                <div className={`dropdown-item-icon ${name==='instagram' ? 'instagram-div' : ''} `}>{icon}</div>
                                 <p>{name}</p>
                             </div>
                         )

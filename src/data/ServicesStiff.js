@@ -13,12 +13,11 @@ const services = [
             {id: 4, amount: 10000, cost: 40},
         ]},
         {id: 1, name:'likes', amount: [
-            {id: 0, amount: 1000, cost: 3},
-            {id: 1, amount: 5000, cost: 7},
-            {id: 2, amount: 10000, cost: 12},
-            {id: 3, amount: 25000, cost: 20},
-            {id: 4, amount: 50000, cost: 35},
-            {id: 5, amount: 100000, cost: 65}
+            {id: 0, amount: 300, cost: 5},
+            {id: 1, amount: 500, cost: 7},
+            {id: 2, amount: 1500, cost: 15},
+            {id: 3, amount: 5000, cost: 25},
+            {id: 4, amount: 10000, cost: 40},
         ]},
         {id: 2, name:'reels views', amount: [
             {id: 0, amount: 300, cost: 5},
