@@ -1,58 +1,60 @@
-import { useEffect, useState, useRef } from "react"
+import {useState } from "react"
 
-const Row = ({platform,serviceType,amount,icon,service,handleServiceChange,handleAmountChange}) => {
+const Row = ({service}) => {
 
-    const [amounts,setAmounts] = useState([])
+    const [selectedService,setSelectedService] = useState(service.services[0])
+    const [amounts,setAmounts] = useState(service.services[0].amount)
+    const [finalCost,setFinalCost] = useState(service.services[0].amount[0].cost)
+    const [selectedIndex,setSelectedIndex] = useState(0)
 
-    const bruhh = useRef(null)
+    const {name,icon} = service
 
-    if(platform==='instagram'){
-        // console.log('bruh')
-        // const bruh = service.services.filter((service) => service.name === serviceType)[0].amount
-        // console.log(bruh)
+    const handleDropDownAChange = (selectedValue) => {
+        setSelectedService(selectedValue)
+
+        const selectedServices = service.services.find((service) => service.name === selectedValue)
+
+        if(selectedServices){
+            setAmounts(selectedServices.amount)
+            let costValue;
+
+            if(selectedIndex >= selectedServices.amount.length){
+                setSelectedIndex(0)
+                costValue = selectedServices.amount[0]
+            }else{
+                costValue = selectedServices.amount[selectedIndex]
+            }
+
+            setFinalCost(costValue.cost)
+        }else{
+            setAmounts([])
+        }
     }
 
-    // const handleAmountChange = (v) => {
-    //     setFake(v.target.value)
-    // }
+    const handleDropDownBChange = (selectedValue,index) => {
+        setSelectedIndex(index)
 
-    useEffect(() => {
-        console.log('changed')
-        const temp = service.services.filter((service) => service.name === serviceType)[0].amount
-        setAmounts(temp)
-        console.log(temp)
-        const temp2 = temp.filter((x) => x.amount === parseInt(amount))[0]
-        console.log(temp2)
-    },[serviceType,service.services,amount])
+        const selectedAmounts = service.services.find((service) => service.name === selectedService)
 
-    useEffect(()=> {
-        console.log('ref here',bruhh.current.value)
-    },[bruhh.current.value])
-
-    // useEffect(() => {
-    //     console.log('amount changed')
-    //     console.log('array',amounts)
-    //     console.log('from component above',amount)
-    //     console.log('from within component',parseInt(fake))
-    //     const temp = amounts.filter((x) => x.amount === parseInt(fake))[0]
-    //     console.log(temp)
-    //     setCost(temp)
-    //     // console.log(cost)
-    // },[amount,amounts,fake])
+        if(selectedAmounts){
+            const costValue = selectedAmounts.amount.find((amount) => amount.amount === parseInt(selectedValue))
+            setFinalCost(costValue.cost)
+        }
+    }
 
   return (
     <div className='items-container item'>
                     <div className='platform-column'>
-                        <div className={`platform-icon   ${platform==='instagram' ? 'instagram-div' : ''}
-                        ${platform==='tiktok' ? 'tiktok-div' : ''}`}>
+                        <div className={`platform-icon   ${name==='instagram' ? 'instagram-div' : ''}
+                        ${name==='tiktok' ? 'tiktok-div' : ''}`}>
                             {icon}
                         </div>
                         <div className='platform-name'>
-                            {platform}
+                            {name}
                         </div>
                     </div>
                     <div className='service-column'>
-                        <select onChange={handleServiceChange} className="service-dropdown">
+                        <select onChange={(e) => handleDropDownAChange(e.target.value)} className="service-dropdown">
                         {service.services.map((service) => (
                             <option key={service.id} value={service.name} className='service-option'>
                                 {service.name}
@@ -61,7 +63,7 @@ const Row = ({platform,serviceType,amount,icon,service,handleServiceChange,handl
                         </select>
                     </div>
                     <div className='amount-column'>
-                        <select onChange={handleAmountChange} className="amount-dropdown" ref={bruhh}>
+                        <select onChange={(e) => handleDropDownBChange(e.target.value,e.target.selectedIndex)} className="amount-dropdown">
                         {amounts.map((x,index) => (
                             <option key={index} value={x.amount} className='amount-option'>
                                 {x.amount} 
@@ -70,8 +72,7 @@ const Row = ({platform,serviceType,amount,icon,service,handleServiceChange,handl
                         </select>
                     </div>
                     <div className='cost-column cost'>
-                        {/* {amounts.filter((x) => x.amount === parseInt(amount))[0].cost} € */}
-                        {/* {cost} € */}
+                        {(parseFloat(finalCost) - 0.01).toFixed(2)} €
                     </div>
                     <div className='buy-btn-column'>
                         <button className='buy-btn'>

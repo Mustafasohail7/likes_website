@@ -77,11 +77,20 @@
     background-color: var(--secondary-color);
     color: black;
     padding: 15px;
+    padding-left: 5px;
     border-radius: 5px;
 
     cursor: pointer;
     text-transform: capitalize;
     font-size: 1.1em;
+}
+
+.service-dropdown{
+    width: 80%;
+}
+
+.amount-dropdown{
+    width: 70%;
 }
 
 .service-option, .amount-option{
