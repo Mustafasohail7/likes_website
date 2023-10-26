@@ -2,7 +2,7 @@ import {useState } from "react"
 
 const Row = ({service}) => {
 
-    const [selectedService,setSelectedService] = useState(service.services[0])
+    const [selectedService,setSelectedService] = useState(service.services[0].name)
     const [amounts,setAmounts] = useState(service.services[0].amount)
     const [finalCost,setFinalCost] = useState(service.services[0].amount[0].cost)
     const [selectedIndex,setSelectedIndex] = useState(0)
@@ -32,9 +32,12 @@ const Row = ({service}) => {
     }
 
     const handleDropDownBChange = (selectedValue,index) => {
+        console.log('hello here')
         setSelectedIndex(index)
-
+        console.log('service is',selectedService)
+        console.log('search here',service.services)
         const selectedAmounts = service.services.find((service) => service.name === selectedService)
+        console.log('check karo',selectedAmounts)
 
         if(selectedAmounts){
             const costValue = selectedAmounts.amount.find((amount) => amount.amount === parseInt(selectedValue))
